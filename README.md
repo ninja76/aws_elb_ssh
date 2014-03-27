@@ -17,9 +17,9 @@ ruby get_elb_nodes.rb -n ELB_GROUP_NAME
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u SSH_USER -k SSH_KEY_FILE -p PREFIX
 
   -s Enable SSH Config Output<br>
-  -u SSH User used with -s
-  -k SSH Keyfile used with -s
-  -p Prefix of Hostname used with -s
+  -u SSH User used with -s<br>
+  -k SSH Keyfile used with -s<br>
+  -p Prefix of Hostname used with -s<br>
 
 ##SSH Config Output
 This will output to STDOUT SSH config blocks for each instance found in the ELB group
@@ -31,12 +31,10 @@ Lets say you have 5 web servers in an ELB group
 By specifing a prefix (-p web ) of web the following Hostnames will be generated:
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u ubuntu -k ~/.ssh/mykey.pem -p web
 
-Hostname web1
-
+Hostname web1<br>
 Host 1.1.1.1
 
-Hostname web2
-
+Hostname web2<br>
 Host 1.1.1.2
 
 etc....
