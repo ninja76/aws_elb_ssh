@@ -5,8 +5,11 @@ get_elb_nodes.rb will return all nodes in an ELB group with there private IP Add
 
 ## Requirements:
 gem install aws-sdk
+
 gem install trollop
+
 Copy config/config.rb.sample to config/config.rb and add your AWS Key info
 
 ##Usage:
+
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME
