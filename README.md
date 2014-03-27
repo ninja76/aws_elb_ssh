@@ -24,11 +24,9 @@ By specifing a prefix (-p web ) of web the following Hostnames will be generated
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u ubuntu -k ~/.ssh/mykey.pem -p web
 
 Hostname web1
-
 Host 1.1.1.1
 
 Hostname web2
-
 Host 1.1.1.2
 
 etc....
