@@ -1,4 +1,4 @@
-## Build SSH configs for AWS ELB members automagically!
+## Build SSH configs for AWS ELB members!
 
 ## Requirements:
 1. gem install aws-sdk
