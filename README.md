@@ -16,7 +16,7 @@ ruby get_elb_nodes.rb -n ELB_GROUP_NAME
 ###Advanced:
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u SSH_USER -k SSH_KEY_FILE -p PREFIX
 
-  -s Enable SSH Config Output
+  -s Enable SSH Config Output<br>
   -u SSH User used with -s
   -k SSH Keyfile used with -s
   -p Prefix of Hostname used with -s
