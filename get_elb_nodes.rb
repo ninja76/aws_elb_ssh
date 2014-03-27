@@ -2,7 +2,12 @@
 require 'rubygems'
 require 'yaml'
 require 'aws-sdk'
+require 'trollop'
 require File.expand_path(File.dirname(__FILE__) + '/config/config.rb')
+
+opts = Trollop::options do
+  opt :name, "ELB Name", :type => :string        # string --name <s>, default nil
+end
 
 begin
   def fetch_instance_ips(elb_group)
@@ -20,4 +25,4 @@ begin
   end
 end
 
-fetch_instance_ips "PILOT01-WEB-webELB-17SV065SS5BWB"
+fetch_instance_ips opts[:name] 
