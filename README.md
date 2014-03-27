@@ -34,8 +34,12 @@ ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u ubuntu -k ~/.ssh/mykey.pem -p web
 
 Hostname web1<br>
 Host 1.1.1.1
+User ubuntu
+IdentityFile "~/.ssh/mykey.pem"
 
 Hostname web2<br>
 Host 1.1.1.2
+User ubuntu
+IdentityFile "~/.ssh/mykey.pem"
 
 etc....
