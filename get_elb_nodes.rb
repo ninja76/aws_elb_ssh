@@ -6,7 +6,6 @@ require File.expand_path(File.dirname(__FILE__) + '/config/config.rb')
 begin
   def fetch_instance_ips(opts)
     elb_group = opts[:name]
-    puts "All Nodes in #{elb_group}"
     elb = AWS::ELB.new
     ec2 = AWS::EC2.new
     instance_ids = elb.load_balancers[elb_group].instances.collect(&:id)
@@ -14,9 +13,16 @@ begin
       i = ec2.instances[id]
       tags = i.tags
       name = tags[:Name]
-      puts "#{i.id} #{name} #{i.private_ip_address}"
+      if opts[:ssh] == false
+        puts "#{i.id} #{name} #{i.private_ip_address}"
+      end
       if opts[:ssh]
-        puts "SSH ME"
+	ssh_user = opts[:user]
+	ssh_key  = opts[:key]
+	puts "Host #{name}\n"
+   	puts "  Hostname #{i.private_ip_address}\n"
+        puts "  IdentityFile \"#{ssh_key}\"\n"
+	puts "  User #{ssh_user}\n\n"
       end
     end
   end
@@ -26,6 +32,8 @@ begin
     opts = Trollop::options do
       opt :name, "ELB Name", :type => :string
       opt :ssh, "Output SSH config"
+      opt :user, "SSH User", :type => :string
+      opt :key, "SSH Key File", :type => :string
     end
     return opts
   end
