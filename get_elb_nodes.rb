@@ -5,10 +5,6 @@ require 'aws-sdk'
 require 'trollop'
 require File.expand_path(File.dirname(__FILE__) + '/config/config.rb')
 
-opts = Trollop::options do
-  opt :name, "ELB Name", :type => :string        # string --name <s>, default nil
-end
-
 begin
   def fetch_instance_ips(elb_group)
     puts "All Nodes in #{elb_group}"
@@ -17,12 +13,20 @@ begin
     instance_ids = elb.load_balancers[elb_group].instances.collect(&:id)
     instance_ids.each do |id|
       i = ec2.instances[id]
-      puts "#{i.id} #{i.private_ip_address}"
+      tags = i.tags
+      name = tags[:Name]
+      puts "#{i.id} #{name} #{i.private_ip_address}"
     end
   end
 
+## Get CLI options
   def parse_options
+    opts = Trollop::options do
+      opt :name, "ELB Name", :type => :string
+    end
+    return opts
   end
 end
 
+opts = parse_options
 fetch_instance_ips opts[:name] 
