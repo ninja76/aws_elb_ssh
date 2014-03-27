@@ -1,12 +1,11 @@
 #!/usr/bin/ruby
-require 'rubygems'
-require 'yaml'
 require 'aws-sdk'
 require 'trollop'
 require File.expand_path(File.dirname(__FILE__) + '/config/config.rb')
 
 begin
-  def fetch_instance_ips(elb_group)
+  def fetch_instance_ips(opts)
+    elb_group = opts[:name]
     puts "All Nodes in #{elb_group}"
     elb = AWS::ELB.new
     ec2 = AWS::EC2.new
@@ -16,6 +15,9 @@ begin
       tags = i.tags
       name = tags[:Name]
       puts "#{i.id} #{name} #{i.private_ip_address}"
+      if opts[:ssh]
+        puts "SSH ME"
+      end
     end
   end
 
@@ -30,4 +32,4 @@ begin
 end
 
 opts = parse_options
-fetch_instance_ips opts[:name] 
+fetch_instance_ips opts 
