@@ -23,6 +23,7 @@ begin
   def parse_options
     opts = Trollop::options do
       opt :name, "ELB Name", :type => :string
+      opt :ssh, "Output SSH config"
     end
     return opts
   end
