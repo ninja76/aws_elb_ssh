@@ -13,3 +13,9 @@ Copy config/config.rb.sample to config/config.rb and add your AWS Key info
 ##Usage:
 
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME
+
+##SSH Config Output
+This will output to STDOUT SSH config blocks for each instance found in the ELB group
+
+ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u ubuntu -k ~/.ssh/mykey.pem
+
