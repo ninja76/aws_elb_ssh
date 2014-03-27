@@ -22,7 +22,7 @@ ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u SSH_USER -k SSH_KEY_FILE -p PREFIX
   -p Prefix of Hostname used with -s<br>
 
 ##SSH Config Output
-This will output to STDOUT SSH style config blocks for each instance found in the ELB group
+This will output to STDOUT SSH style config blocks for each instance found in the ELB group<br>
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u SSH_USER -k SSH_KEY_FILE
 
 Another cool feature is prefixing:
