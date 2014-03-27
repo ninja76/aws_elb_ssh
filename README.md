@@ -1,4 +1,4 @@
-* Ruby AWS Tools
+= Ruby AWS Tools
 
 ===
 get_elb_nodes.rb will return all nodes in an ELB group with there private IP Addresses.  This makes it easier to create an SSH or Cluster SSH config for nodes that might be part of an Autoscale group
