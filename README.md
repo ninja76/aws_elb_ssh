@@ -4,7 +4,7 @@
 1. gem install aws-sdk
 2. gem install trollop
 3. Copy config/config.rb.sample to config/config.rb and add your AWS Key info
-4. Optional - Usage of 'Name' tags not needed if using the prefix option
+4. Optional - Usage of 'Name' tags.  Not needed if using the prefix option
 
 ##Usage:
 
