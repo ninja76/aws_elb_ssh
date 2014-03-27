@@ -10,7 +10,11 @@ get_elb_nodes.rb will return all nodes in an ELB group with there private IP Add
 
 ##Usage:
 
+###Basic:
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME
+
+###Advanced:
+ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u ubuntu -k ~/.ssh/mykey.pem -p web
 
 ##SSH Config Output
 This will output to STDOUT SSH config blocks for each instance found in the ELB group
