@@ -6,7 +6,7 @@
 3. Copy config/config.rb.sample to config/config.rb and add your AWS Key info
 4. Optional - Usage of 'Name' tags.  Not needed if using the prefix option
 
-##Usage:
+##Usage
 
 ###Basic:
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME
