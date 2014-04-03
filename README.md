@@ -28,8 +28,8 @@ ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u SSH_USER -k SSH_KEY_FILE
 
 ####Prefixing:
 
-Lets say you have 5 web servers in an ELB group
-By specifing a prefix (-p web ) of web the following Hostnames will be generated:<br>
+Lets say you have 5 web servers in an ELB group,<br>
+by specifing a prefix (-p web ) of web the following Hostnames will be generated:<br>
 EX. <br>
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u ubuntu -k ~/.ssh/mykey.pem -p web
 
