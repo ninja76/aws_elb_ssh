@@ -1,5 +1,8 @@
 ## Build SSH configs for AWS ELB members!
 
+### Problem
+You have an autoscale group and instances are always coming and going.  Sometimes its nessecery to SSH into them for troubloeshooting or something.  But it can be a hassle to manually goto the AWS console and track down IP addresses for the instances.  This script does that for you and even builds the SSH configs for you!
+
 ## Requirements:
 1. gem install aws-sdk
 2. gem install trollop
