@@ -3,13 +3,13 @@
 ###The Problem
 You have an autoscale group and instances are always coming and going.  Sometimes its nessecery to SSH into them for troubloeshooting or something.  But it can be a hassle to manually goto the AWS console and track down IP addresses for the instances.  This script does that for you and even builds the SSH configs for you!
 
-## Requirements:
+##Usage
+
+### Requirements:
 1. gem install aws-sdk
 2. gem install trollop
 3. Copy config/config.rb.sample to config/config.rb and add your AWS Key info
 4. Optional - Usage of 'Name' tags.  Not needed if using the prefix option
-
-##Usage
 
 ###Basic:
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME
