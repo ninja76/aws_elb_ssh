@@ -5,10 +5,10 @@ require 'json'
 require File.expand_path(File.dirname(__FILE__) + '/config/config.aws.rb')
 
 begin
-  def fetch_instances_w_config(config_options)
+  def fetch_instances_w_config(config_file)
     elb = AWS::ELB.new
     ec2 = AWS::EC2.new
-    JSON.parse(File.read("predefined.json"))['groups'].each do |item|
+    JSON.parse(File.read(config_file))['groups'].each do |item|
       elb_group = item['elbName']
       ssh_user = item['username']
       ssh_key  = item['sshKey']
@@ -74,8 +74,7 @@ end
 
 opts = parse_options
 if opts[:config]
-  config_options = JSON.parse(File.read("predefined.json"));
-  fetch_instances_w_config config_options 	
+  fetch_instances_w_config opts[:config] 	
 else
   fetch_instances_wo_config opts 
 end
