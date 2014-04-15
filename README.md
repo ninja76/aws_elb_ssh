@@ -8,7 +8,7 @@ You have an autoscale group with instances behind an ELB that are always coming 
 ### Requirements:
 1. git clone https://github.com/ninja76/ruby-aws-tools.git
 1. cd ruby-aws-tools; bundle install  (this will install all the dependencies)
-3. Copy config/config.rb.sample to config/config.rb and add your AWS Key info
+3. Copy config/config.aws.rb.sample to config/config.aws.rb and add your AWS Key info
 4. Optional - Usage of 'Name' tags.  Not needed if using the prefix option
 
 ###Basic:
