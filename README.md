@@ -15,9 +15,9 @@ You have an autoscale group and instances are always coming and going.  Sometime
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME
 
 ###Advanced:
-ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u SSH_USER -k SSH_KEY_FILE -p PREFIX
-or
-ruby get_elb_nodes.rb -c myconfig.json
+ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u SSH_USER -k SSH_KEY_FILE -p PREFIX<br>
+or<br>
+ruby get_elb_nodes.rb -c myconfig.json<br>
 
   -s Enable SSH Config Output<br>
   -u SSH User used with -s<br>
