@@ -16,15 +16,42 @@ ruby get_elb_nodes.rb -n ELB_GROUP_NAME
 
 ###Advanced:
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u SSH_USER -k SSH_KEY_FILE -p PREFIX
+or
+ruby get_elb_nodes.rb -c myconfig.json
 
   -s Enable SSH Config Output<br>
   -u SSH User used with -s<br>
   -k SSH Keyfile used with -s<br>
   -p Prefix of Hostname used with -s<br>
+  -c myconfig.json
+
+NEW: config file.  This option allows you to store all of your ELB or ASG group information in a file to quickly generate the config for all of your groups
+example myconfig.json:
+{
+        "groups" : [
+        {
+                "groupName": "webprod",
+                "username" : "ubuntu",
+                "sshKey"   : "/root/.ssh/prodkey.pem",
+                "elbName"  : "PROD01-WEB0-webELB-XXXXXXX"
+        },
+        {
+                "groupName": "dbprod",
+                "username" : "ubuntu",
+                "sshKey"   : "/root/.ssh/prodkey.pem",
+                "elbName"  : "PROD01-SE-DBE-XXXXXXX"
+        }
+        ]
+}
+
 
 ##SSH Config Output
 This will output to STDOUT SSH style config blocks for each instance found in the ELB group<br>
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u SSH_USER -k SSH_KEY_FILE
+
+This will output to STDOUT SSH style config blocks for all the nodes defined in all ELB groups in myconfig.json
+ruby get_elb_nodes.rb -c myconfig.json
+
 
 ####Prefixing:
 
