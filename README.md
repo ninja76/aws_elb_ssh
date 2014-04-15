@@ -1,7 +1,7 @@
 ## Build SSH configs for AWS ELB members!
 
 ###The Problem
-You have an autoscale group and instances are always coming and going.  Sometimes its nessecery to SSH into them for troubloeshooting or something.  But it can be a hassle to manually goto the AWS console and track down IP addresses for the instances.  This script does that for you and even builds the SSH configs for you!
+You have an autoscale group with instances behind an ELB that are always coming and going.  Sometimes its nessecery to SSH into them for troubleshooting, deployment or other tasks.  But it can be a hassle to keep track of what the current IP addresses are for each instance.  This script does that for you and even builds the SSH configs for you!
 
 ##Usage
 
@@ -15,42 +15,42 @@ You have an autoscale group and instances are always coming and going.  Sometime
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME
 
 ###Advanced:
-ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u SSH_USER -k SSH_KEY_FILE -p PREFIX
-or
-ruby get_elb_nodes.rb -c myconfig.json
+ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u SSH_USER -k SSH_KEY_FILE -p PREFIX<br>
+or<br>
+ruby get_elb_nodes.rb -c myconfig.json<br>
 
   -s Enable SSH Config Output<br>
   -u SSH User used with -s<br>
   -k SSH Keyfile used with -s<br>
   -p Prefix of Hostname used with -s<br>
-  -c myconfig.json
+  -c myconfig.json<br>
 
-NEW: config file.  This option allows you to store all of your ELB or ASG group information in a file to quickly generate the config for all of your groups
-example myconfig.json:
-{
-        "groups" : [
-        {
-                "groupName": "webprod",
-                "username" : "ubuntu",
-                "sshKey"   : "/root/.ssh/prodkey.pem",
-                "elbName"  : "PROD01-WEB0-webELB-XXXXXXX"
-        },
-        {
-                "groupName": "dbprod",
-                "username" : "ubuntu",
-                "sshKey"   : "/root/.ssh/prodkey.pem",
-                "elbName"  : "PROD01-SE-DBE-XXXXXXX"
-        }
-        ]
-}
+NEW: config file.  This option allows you to store all of your ELB or ASG group information in a file to quickly generate the config for all of your groups<br>
+example myconfig.json:<br>
+{<br>
+        "groups" : [<br>
+        {<br>
+                "groupName": "webprod",<br>
+                "username" : "ubuntu",<br>
+                "sshKey"   : "/root/.ssh/prodkey.pem",<br>
+                "elbName"  : "PROD01-WEB0-webELB-XXXXXXX"<br>
+        },<br>
+        {<br>
+                "groupName": "dbprod",<br>
+                "username" : "ubuntu",<br>
+                "sshKey"   : "/root/.ssh/prodkey.pem",<br>
+                "elbName"  : "PROD01-SE-DBE-XXXXXXX"<br>
+        }<br>
+        ]<br>
+}<br>
 
 
 ##SSH Config Output
 This will output to STDOUT SSH style config blocks for each instance found in the ELB group<br>
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u SSH_USER -k SSH_KEY_FILE
 
-This will output to STDOUT SSH style config blocks for all the nodes defined in all ELB groups in myconfig.json
-ruby get_elb_nodes.rb -c myconfig.json
+This will output to STDOUT SSH style config blocks for all the nodes defined in all ELB groups in myconfig.json<br>
+ruby get_elb_nodes.rb -c myconfig.json<br>
 
 
 ####Prefixing:
