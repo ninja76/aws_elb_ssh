@@ -25,7 +25,9 @@ begin
         puts "  IdentityFile \"#{ssh_key}\"\n"
         puts "  User #{ssh_user}\n\n"
         if opts[:runcommand]
-          puts "Executing Command: #{opts[:runcommand]} on host #{i.private_ip_address}\n"
+          sshcmd = "ssh -i #{ssh_key} #{i.private_ip_address} \"#{opts[:runcommand]}\""
+          puts "Executing Command:#{sshcmd}\n"
+          `#{sshcmd}`
         end
       end
     end
