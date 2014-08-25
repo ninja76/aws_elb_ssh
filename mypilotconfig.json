@@ -3,13 +3,13 @@
         {
               	"groupName": "pilotweb", 
 		"username" : "ubuntu",
-                "sshKey"   : "/root/.ssh/itjbdev.pem",
+                "sshKey"   : "~/.ssh/itjbdev.pem",
                 "elbName"  : "PILOT01-WEB-webELB-17SV065SS5BWB"
         },
         {
                 "groupName": "pilotservice",
                 "username" : "ubuntu",
-                "sshKey"   : "/root/.ssh/itjbdev.pem",
+                "sshKey"   : "~/.ssh/itjbdev.pem",
                 "elbName"  : "PILOT01-S-serviceE-1LAVWFBEWB0K5"
         }
         ]
