@@ -5,7 +5,7 @@ require 'json'
 require File.expand_path(File.dirname(__FILE__) + '/config/config.aws.rb')
 
 begin
-  def fetch_instances_w_config(config_file)
+  def fetch_instances_w_config(config_file, opts)
     elb = AWS::ELB.new
     ec2 = AWS::EC2.new
     JSON.parse(File.read(config_file))['groups'].each do |item|
@@ -24,6 +24,9 @@ begin
         puts "  Hostname #{i.private_ip_address}\n"
         puts "  IdentityFile \"#{ssh_key}\"\n"
         puts "  User #{ssh_user}\n\n"
+        if opts[:runcommand]
+          puts "Executing Command: #{opts[:runcommand]} on host #{i.private_ip_address}\n"
+        end
       end
     end
   end
@@ -67,6 +70,7 @@ begin
       opt :user, "SSH User", :type => :string
       opt :key, "SSH Key File", :type => :string
       opt :prefix, "Prefix for each instance ex. web results in web1, web2, etc", :type => :string
+      opt :runcommand, "Run command via ssh to each node", :type => :string
     end
     return opts
   end
@@ -74,7 +78,7 @@ end
 
 opts = parse_options
 if opts[:config]
-  fetch_instances_w_config opts[:config] 	
+  fetch_instances_w_config opts[:config], opts
 else
   fetch_instances_wo_config opts 
 end
