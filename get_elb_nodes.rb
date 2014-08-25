@@ -27,7 +27,7 @@ begin
         if opts[:runcommand]
           sshcmd = "ssh -i #{ssh_key} #{i.private_ip_address} \"#{opts[:runcommand]}\""
           puts "Executing Command:#{sshcmd}\n"
-          `#{sshcmd}`
+          system "#{sshcmd}"
         end
       end
     end
