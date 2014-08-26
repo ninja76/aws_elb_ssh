@@ -46,14 +46,14 @@ example myconfig.json:<br>
 }<br>
 
 
-##SSH Config Output
+####SSH Config Output
 This will output to STDOUT SSH style config blocks for each instance found in the ELB group<br>
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u SSH_USER -k SSH_KEY_FILE
 
 This will output to STDOUT SSH style config blocks for all the nodes defined in all ELB groups in myconfig.json<br>
 ruby get_elb_nodes.rb -c myconfig.json<br>
 
-##Run Command
+####Run Command
 This is will run the command "df -h" across all nodes and return the output to stdout: <br>
 ruby get_elb_nodes.rb -c myconfig.json -r "df -h" <br>
 
