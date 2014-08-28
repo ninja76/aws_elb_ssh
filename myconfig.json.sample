@@ -4,13 +4,13 @@
               	"groupName": "webprod", 
 		"username" : "ubuntu",
                 "sshKey"   : "/root/.ssh/prodkey.pem",
-                "elbName"  : "PROD01-WEB0-webELB-XXXXXXX"
+                "elbName"  : "WEB-ELB-XXXXXXX"
         },
         {
                 "groupName": "dbprod",
                 "username" : "ubuntu",
                 "sshKey"   : "/root/.ssh/prodkey.pem",
-                "elbName"  : "PROD01-SE-DBE-XXXXXXX"
+                "elbName"  : "DB-ELB-XXXXXXX"
         }
         ]
 }
