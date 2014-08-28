@@ -1,8 +1,0 @@
-{
-	"groups" : [
-        {
-              	"groupName": "QA", 
-                "exclude"  : "QA_DBa01,QA_SSH,QA_NAT"
-        }
-        ]
-}

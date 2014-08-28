@@ -20,10 +20,12 @@ begin
         tags = i.tags
         name = tags[:Name]
         c = c +1
-        puts "Host #{prefix}#{c}\n"
-        puts "  Hostname #{i.private_ip_address}\n"
-        puts "  IdentityFile \"#{ssh_key}\"\n"
-        puts "  User #{ssh_user}\n\n"
+        if !opts[:runcommand]
+          puts "Host #{prefix}#{c}\n"
+          puts "  Hostname #{i.private_ip_address}\n"
+          puts "  IdentityFile \"#{ssh_key}\"\n"
+          puts "  User #{ssh_user}\n\n"
+        end
         if opts[:runcommand]
           sshcmd = "ssh -i #{ssh_key} #{i.private_ip_address} \"#{opts[:runcommand]}\""
           puts "Executing Command:#{sshcmd}\n"
