@@ -1,7 +1,7 @@
 ## Build SSH configs and run commands on all AWS ELB/ASG members!
 
 ###The Problem
-You have an autoscale group with instances behind an ELB that are always coming and going.  Sometimes its nessecery to SSH into them for troubleshooting, deployment or other tasks.  But it can be a hassle to keep track of what the current IP addresses are for each instance.  This script does that for you and even builds the SSH configs for you!
+You have an autoscale group with instances that are always coming and going.  Sometimes its nessecery to SSH into them for troubleshooting, deployment or other tasks.  But it can be a hassle to keep track of what the current IP addresses are for each instance.  This script does that for you and even builds the SSH configs for you!
 
 ##Usage
 
