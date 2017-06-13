@@ -1,9 +1,9 @@
 ## Build SSH configs and run commands on all AWS ELB/ASG members!
 
-###The Problem
+### The Problem
 You have an autoscale group with instances that are always coming and going.  Sometimes its nessecery to SSH into them for troubleshooting, deployment or other tasks.  But it can be a hassle to keep track of what the current IP addresses are for each instance.  This script does that for you and even builds the SSH configs for you!
 
-##Usage
+## Usage
 
 ### Install:
 1. git clone https://github.com/ninja76/aws_elb_ssh.git
@@ -11,10 +11,10 @@ You have an autoscale group with instances that are always coming and going.  So
 3. Copy config/config.aws.rb.sample to config/config.aws.rb and add your AWS Key info
 4. Optional - Usage of 'Name' tags.  Not needed if using the prefix option
 
-###Basic:
+### Basic:
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME
 
-###Advanced:
+### Advanced:
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u SSH_USER -k SSH_KEY_FILE -p PREFIX<br>
 or<br>
 ruby get_elb_nodes.rb -c myconfig.json<br>
@@ -46,19 +46,19 @@ example myconfig.json:<br>
 }<br>
 
 
-####SSH Config Output:
+#### SSH Config Output:
 This will output to STDOUT SSH style config blocks for each instance found in the ELB group<br>
 ruby get_elb_nodes.rb -n ELB_GROUP_NAME -s -u SSH_USER -k SSH_KEY_FILE
 
 This will output to STDOUT SSH style config blocks for all the nodes defined in all ELB groups in myconfig.json<br>
 ruby get_elb_nodes.rb -c myconfig.json<br>
 
-####Run Command:
+#### Run Command:
 This is will run the command "df -h" across all nodes and return the output to stdout: <br>
 ruby get_elb_nodes.rb -c myconfig.json -r "df -h" <br>
 
 
-####Prefixing:
+#### Prefixing:
 
 Lets say you have 5 web servers in an ELB group,<br>
 by specifing a prefix (-p web ) of web the following Hostnames will be generated:<br>
